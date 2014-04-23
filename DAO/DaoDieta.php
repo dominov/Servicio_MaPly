@@ -16,7 +16,8 @@ class DaoDieta extends DaoGeneral implements Dao {
 
     function listar($codigo,  $fecha) {
 
-        $sql = "SELECT * FROM `dieta` join alimentos ON dieta.codAlimento =alimentos.codAlimento WHERE `codPaciente` = ".$codigo." AND fecha = '".$fecha."'";
+        $sql = "SELECT * FROM `dieta` join alimentos join tipo ON dieta.codAlimento =alimentos.codAlimento"
+                . " AND tipo.codigo_tipo_comida = dieta.tipo_comida WHERE `codPaciente` = ".$codigo." AND fecha ='".$fecha."'";;
         
         $link = $this->Conectarse();
         $respuesta = mysql_query($sql, $link);

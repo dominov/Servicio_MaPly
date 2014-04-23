@@ -25,10 +25,13 @@ class Servicio_dieta {
             $i = 0;
             while ($fila = mysql_fetch_array($respuesta)) {
                 $json["dietas"][$i] = array("codigo_dieta" => $fila["codDieta"],
-                    "tipo_comida" => $fila["tipoComida"],
                     "fecha" => $fila["fecha"],
                     "cantidad" => $fila["cantidad"],
                     "comentario" => $fila["comentario"],
+                    "estado" => $fila["estado"],
+                    "nombre_tipo_comida" => $fila["nombre_tipo_comida"],
+                    "codigo_tipo_comida" => $fila["codigo_tipo_comida"],
+                    "hora_tipo_comida" => $fila["hora_tipo_comida"],                    
                     "nombre_alimento" => $fila["nombre"],
                     "medida" => $fila["medida"],
                     "proteinas" => $fila["proteinas"],
