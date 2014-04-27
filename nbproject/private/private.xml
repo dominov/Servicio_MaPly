@@ -6,6 +6,9 @@
         <group>
             <file>file:/C:/xampp/htdocs/Servicio_MaPly/servicios/Servicio_dieta.php</file>
             <file>file:/C:/xampp/htdocs/Servicio_MaPly/DAO/DaoDieta.php</file>
+            <file>file:/C:/xampp/htdocs/Servicio_MaPly/DAO/Dao_Alimentos.php</file>
+            <file>file:/C:/xampp/htdocs/Servicio_MaPly/servicios/Servicio_alimentos.php</file>
+            <file>file:/C:/xampp/htdocs/Servicio_MaPly/DAO/Dao.php</file>
         </group>
     </open-files>
 </project-private>
