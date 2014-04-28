@@ -23,7 +23,7 @@ class Servicio_dieta {
 
                 break;
             case 2:
-                $this->buscar();
+                $this->ingresar();
 
                 break;
             default:
@@ -78,6 +78,8 @@ class Servicio_dieta {
 
         echo json_encode($json);
     }
+    
+
 }
 
 ?>
