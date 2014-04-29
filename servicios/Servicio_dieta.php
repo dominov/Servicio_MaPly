@@ -23,6 +23,9 @@ class Servicio_dieta {
             case 2:
                 $this->ingresar();
 
+            case 3:
+                $this->update();
+
                 break;
             default:
                 break;
@@ -71,7 +74,7 @@ class Servicio_dieta {
 
         $data = json_decode(file_get_contents('php://input'), true);
         //print_r($data);
-        $sql = "INSERT INTO `sig`.`historial` (`codigo`,`fecha_registro`, `tipo_comida`, `codAlimento`,`codPaciente`,`cantidad`) VALUES " ;
+        $sql = "INSERT INTO `sig`.`historial` (`codigo`,`fecha_registro`, `tipo_comida`, `codAlimento`,`codPaciente`,`cantidad`) VALUES ";
 
 
         foreach ($data as $key => $value) {
@@ -79,17 +82,37 @@ class Servicio_dieta {
             $sql .= "(NULL";
             foreach ($value as $key2 => $value2) {
                 //echo "$key2 | $value2";
-                $sql .= ",'" . $value2."'";
+                $sql .= ",'" . $value2 . "'";
             }
             $sql .= "),";
         }
-       $sql = trim($sql, ',');
+        $sql = trim($sql, ',');
         $sql .=";";
-        
-         $d = new DaoDieta();
+
+        $d = new DaoDieta();
         $respuesta = $d->select($sql);
         echo "$respuesta";
         // echo $data["dietas"];
+    }
+
+    function update() {
+
+        mysql_connect("localhost", "root", "");
+        mysql_select_db("sig");
+        $data = json_decode(file_get_contents('php://input'), true);
+        //print_r($data);
+        $sql = "";
+
+        foreach ($data as $key => $value) {
+
+            $estado = $value["estado"];
+            $cod = $value["codigo_dieta"];
+            
+            $sSQL = "Update dieta Set estado='$estado' Where codDieta='$cod';";
+            mysql_query($sSQL);
+             echo "$sSQL";
+        }     
+        
     }
 
 }

@@ -31,6 +31,7 @@ class DaoDieta extends DaoGeneral implements Dao {
         $link = $this->Conectarse();
         $respuesta = mysql_query($condicion, $link);
         $this->cerrarConexion($link);
+        
         return $respuesta;
     }
     

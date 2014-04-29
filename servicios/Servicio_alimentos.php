@@ -23,7 +23,7 @@ class Servicio_dieta {
 
                 break;
             case 2:
-                $this->ingresar();
+                $this->buscar();
 
                 break;
             default:
